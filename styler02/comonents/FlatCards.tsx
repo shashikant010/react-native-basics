@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
     heading:{
         fontSize:28,
         fontWeight:"bold",
-        color:"black"
+        color:"black",
+        marginHorizontal:10
     },
     container:{
         flex:1,
