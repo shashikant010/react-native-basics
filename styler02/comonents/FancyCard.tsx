@@ -22,7 +22,7 @@ export default function FancyCard() {
 const styles = StyleSheet.create({
     heading:{fontSize:28,fontWeight:"bold",marginHorizontal:10,color:"black"},
     card:{backgroundColor:"black",height:380,margin:8,borderRadius:8},
-    cardElevated:{},
+    cardElevated:{elevation:5},
     cardImage:{height:180,width:394,borderTopLeftRadius:8,borderTopRightRadius:8},
     cardBody:{},
     cardTitle:{color:"white",fontSize:20,fontWeight:"bold",margin:8,textAlign:"center"},
