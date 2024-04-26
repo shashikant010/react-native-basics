@@ -82,7 +82,6 @@ export default function App() {
        initialValues={{ passwordLength: '' }}
        validationSchema={PasswordSchema}
        onSubmit={ values => {
-        console.log(values);
         generatePasswordString(+values.passwordLength) 
        }}
      >
