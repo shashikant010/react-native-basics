@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import {
+  FlatList,
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   useColorScheme,
   View,
 } from 'react-native';
@@ -53,11 +56,42 @@ const buttonPressed=(targetValue:Currency)=>{
 
   return (
     <SafeAreaView>
-      <StatusBar
-       
-      />
-      <View>
-        <Text>1</Text>
+      <StatusBar/>
+      <View style={styles.container}>
+          <View style={styles.topContainer}>
+            <View style={styles.rupeesContainer}>
+              <Text style={styles.rupee}>&</Text>
+              <TextInput
+              maxLength={14}
+              value={inputValue}
+              clearButtonMode='always'
+              onChangeText={setInputValue}
+              keyboardType='number-pad'
+              placeholder='Enter Amount in rupees'
+              />
+            </View>
+            {resultValue && (
+              <Text style={styles.resultTxt}>{resultValue}</Text>
+            )}
+          </View>
+          <View style={styles.bottomContainer}>
+            <FlatList
+              numColumns={3}
+              data={currencyByRupee}
+              keyExtractor={item=>item.name}
+              renderItem={({item})=>(
+                <Pressable 
+                style={
+                  [styles.button,targetCurrency===item.name && styles.selected]}
+                onPress={()=>buttonPressed(item)}
+                >
+
+                  <CurrencyButton {...item}/>
+                </Pressable>
+              )}
+            />
+
+          </View>
       </View>
     </SafeAreaView>
   );
